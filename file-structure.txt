@@ -1,0 +1,142 @@
+
+wakusini/
+│
+├── public/
+│   ├── images/
+│   │   ├── brand/
+│   │   │   ├── logo.svg
+│   │   │   └── favicon.ico
+│   │   │
+│   │   ├── hero/
+│   │   │   ├── home-hero.webp
+│   │   │   └── developments-hero.webp
+│   │   │
+│   │   ├── developments/
+│   │   │   ├── villa-maalum/
+│   │   │   │   ├── exterior.webp
+│   │   │   │   ├── living-room.webp
+│   │   │   │   ├── bedroom.webp
+│   │   │   │   ├── pool.webp
+│   │   │   │   └── floor-plan.webp
+│   │   │   │
+│   │   │   ├── villa-kaya/
+│   │   │   └── tulia-house/
+│   │   │
+│   │   ├── services/
+│   │   │   ├── architecture.webp
+│   │   │   ├── land.webp
+│   │   │   ├── construction.webp
+│   │   │   └── management.webp
+│   │   │
+│   │   ├── about/
+│   │   │   ├── founders.webp
+│   │   │   └── team.webp
+│   │   │
+│   │   └── gallery/
+│   │
+│   └── icons/
+│
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── globals.css
+│   │   ├── sitemap.ts
+│   │   ├── robots.ts
+│   │   │
+│   │   ├── about/
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── services/
+│   │   │   ├── page.tsx
+│   │   │   ├── architecture-design/
+│   │   │   │   └── page.tsx
+│   │   │   ├── land-acquisition/
+│   │   │   │   └── page.tsx
+│   │   │   ├── construction/
+│   │   │   │   └── page.tsx
+│   │   │   └── villa-management/
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── developments/
+│   │   │   ├── page.tsx
+│   │   │   └── [slug]/
+│   │   │       └── page.tsx
+│   │   │
+│   │   └── contact/
+│   │       └── page.tsx
+│   │
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Header.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── MobileNav.tsx
+│   │   │   └── Navigation.tsx
+│   │   │
+│   │   ├── home/
+│   │   │   ├── HomeHero.tsx
+│   │   │   ├── IntroSection.tsx
+│   │   │   ├── FeaturedDevelopments.tsx
+│   │   │   ├── ServicesOverview.tsx
+│   │   │   ├── WhyWakusini.tsx
+│   │   │   └── HomeCTA.tsx
+│   │   │
+│   │   ├── developments/
+│   │   │   ├── DevelopmentCard.tsx
+│   │   │   ├── DevelopmentGrid.tsx
+│   │   │   ├── PropertyGallery.tsx
+│   │   │   ├── PropertyOverview.tsx
+│   │   │   ├── PropertySpecs.tsx
+│   │   │   ├── PropertyFeatures.tsx
+│   │   │   ├── PropertyLocation.tsx
+│   │   │   └── PropertyEnquiry.tsx
+│   │   │
+│   │   ├── services/
+│   │   │   ├── ServiceCard.tsx
+│   │   │   ├── ServiceGrid.tsx
+│   │   │   ├── ServiceHero.tsx
+│   │   │   └── ServiceCTA.tsx
+│   │   │
+│   │   ├── about/
+│   │   │   ├── FoundersSection.tsx
+│   │   │   ├── FounderCard.tsx
+│   │   │   └── CompanyStory.tsx
+│   │   │
+│   │   ├── contact/
+│   │   │   └── ContactForm.tsx
+│   │   │
+│   │   ├── shared/
+│   │   │   ├── Container.tsx
+│   │   │   ├── SectionHeading.tsx
+│   │   │   ├── PageHero.tsx
+│   │   │   ├── SectionCTA.tsx
+│   │   │   └── WhatsAppButton.tsx
+│   │   │
+│   │   └── animations/
+│   │       ├── FadeIn.tsx
+│   │       ├── Reveal.tsx
+│   │       └── StaggerContainer.tsx
+│   │
+│   ├── data/
+│   │   ├── developments.ts
+│   │   ├── services.ts
+│   │   ├── navigation.ts
+│   │   └── company.ts
+│   │
+│   ├── lib/
+│   │   ├── utils.ts
+│   │   └── whatsapp.ts
+│   │
+│   ├── actions/
+│   │   └── submitContact.ts
+│   │
+│   └── types/
+│       ├── development.ts
+│       ├── service.ts
+│       └── contact.ts
+│
+├── .env.local
+├── next.config.ts
+├── tsconfig.json
+├── package.json
+└── README.md
