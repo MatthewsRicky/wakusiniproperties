@@ -11,6 +11,7 @@ const footerLinks = [
 ];
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-[var(--foreground)] text-[var(--text-light)]">
       <Container className="py-20">
@@ -64,10 +65,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-20 flex flex-col justify-between gap-4 border-t border-white/15 pt-7 text-xs text-white/45 sm:flex-row">
-          <p>
-            © {new Date().getFullYear()} Wakusini Properties. All rights
-            reserved.
-          </p>
+          <p>© {currentYear} Wakusini Properties. All rights reserved.</p>
 
           <p>Designed around coastal living.</p>
         </div>
