@@ -16,7 +16,32 @@ export type Service = {
   overviewTitle: string;
   overview: string[];
   sections: ServiceSection[];
+
+  heroCtaLabel?: string;
+  editorialSections?: ServiceEditorialSection[];
+  trustSection?: ServiceTrustSection;
 };
+
+
+export type ServiceEditorialSection = {
+  headingTop: string;
+  headingBottom: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+  imagePosition?: "left" | "right";
+};
+
+export type ServiceTrustSection = {
+  headingTop: string;
+  headingBottom: string;
+  description: string;
+  images: {
+    src: string;
+    alt: string;
+  }[];
+};
+
 
 export const services: Service[] = [
   {
@@ -97,42 +122,80 @@ export const services: Service[] = [
       },
     ],
   },
+
   {
     slug: "construction",
     number: "03",
-    title: "Construction",
+    title: "Construction & Building",
     shortTitle: "Build",
     summary:
-      "Bringing property concepts into reality through a considered approach to construction and building.",
+      "Professional construction services for projects ranging from private villas to larger resort-style properties.",
     description:
-      "Explore construction services for clients looking to turn their property plans into completed spaces.",
-    heroTitle: "Turning ideas into built spaces.",
+      "Explore Wakusini's construction and building services in Diani.",
+    heroTitle: "Building your vision on the Kenyan coast.",
     heroDescription:
-      "Explore construction as part of a connected approach to property development along Kenya's South Coast.",
-    image: "",
-    overviewTitle: "From design to construction.",
+      "From individual villas to larger resort-style properties, discover construction services shaped around your project and the coastal setting.",
+    heroCtaLabel: "Discuss your project",
+    image: "/images/services/construction/11-1024x614.jpg",
+    overviewTitle: "Construction in Diani.",
     overview: [
-      "Construction is where a property's design takes physical form. It requires coordination between the project's requirements, its design direction and the practical realities of building.",
-      "Wakusini's construction service forms part of its wider property offering, helping connect the planning and building stages of a project.",
+      "Wakusini's construction service supports clients looking to bring their property plans to life along Kenya's South Coast.",
     ],
-    sections: [
+    sections: [],
+    editorialSections: [
       {
-        title: "Project requirements",
+        headingTop: "BUILD IN",
+        headingBottom: "DIANI",
         description:
-          "Understanding the scope and priorities that define the intended construction project.",
+          "Diani has become one of the most popular growing places in Africa to invest in holiday properties. Named the best destination in the world by TripAdvisor, Diani offers tropical living at affordable prices with a tranquil beach lifestyle.",
+        image: "/images/services/construction/ceilingguy.jpg",
+        imageAlt: "Diani Beach and the Kenyan coastline",
+        imagePosition: "right",
       },
       {
-        title: "Design coordination",
+        headingTop: "DIANI",
+        headingBottom: "CONSTRUCTION",
         description:
-          "Keeping the project's design direction and construction requirements connected.",
+          "Our construction team can handle any project, from a tiny villa to larger resort-style villas. No villa project is too big or too small.",
+        image: "",
+        imageAlt: "Villa construction project in Diani",
+        imagePosition: "left",
       },
       {
-        title: "Building the vision",
+        headingTop: "BUILDING IN",
+        headingBottom: "DIANI",
         description:
-          "Working towards a completed property that reflects the project's agreed requirements.",
+          "Our building and construction team are experienced and efficient. They work to the highest specifications to create impressive villas for all of our clients.",
+        image: "/images/services/construction/ceilingtimber.jpg",
+        imageAlt: "Modern villa architecture in Diani",
+        imagePosition: "right",
+      },
+      {
+        headingTop: "RULES &",
+        headingBottom: "REGULATIONS",
+        description:
+          "When building in Diani, there are local rules and regulations that must be followed in order to ensure legal compliance. Our team can help take care of all of the legal obligations for your new villa in Diani.",
+        imagePosition: "left",
       },
     ],
+    trustSection: {
+      headingTop: "TRUSTED",
+      headingBottom: "DIANI BUILDERS",
+      description:
+        "Wakusini is a fast-growing property development and villa design brand in Diani. For trusted and professional construction services in Diani, get in touch today.",
+      images: [
+        {
+          src: "/images/services/construction/site1-1024x783.jpg",
+          alt: "Wakusini construction and property development project",
+        },
+        {
+          src: "/images/services/construction/site2-1024x783.jpg",
+          alt: "Completed villa by Wakusini",
+        },
+      ],
+    },
   },
+
   {
     slug: "villa-management",
     number: "04",

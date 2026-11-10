@@ -8,5 +8,5 @@ export default function ConstructionPage() {
 
   if (!service) notFound();
 
-  return <ServiceDetailLayout service={service} />;
+  return <ServiceDetailLayout service={service}  />;
 }
