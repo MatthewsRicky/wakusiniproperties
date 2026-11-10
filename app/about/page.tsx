@@ -1,198 +1,200 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import Container from "@/components/shared/Container";
+
+const foundersImage = "/images/about/website-potrait-1152x1536.jpg";
+const aboutImage = "/images/developments/villa-kaya/10-Dining-1024x614.jpg";
 
 export default function AboutPage() {
   return (
     <main>
-      {/* Page introduction */}
+      {/* Introduction */}
       <section className="section-padding pb-16">
         <Container>
           <div className="max-w-5xl">
             <p className="eyebrow">About Wakusini</p>
 
             <h1 className="mt-7 font-display text-5xl leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
-              Creating places to{" "}
-              <span className="italic text-[var(--olive-dark)]">belong.</span>
-              <br />
-              Building with purpose.
+              Property development, shaped by{" "}
+              <span className="italic text-[var(--olive-dark)]">purpose.</span>
             </h1>
 
             <div className="mt-10 grid gap-8 border-t border-[var(--border)] pt-8 md:grid-cols-[1fr_1.2fr]">
               <p className="text-sm leading-7 text-[var(--text-secondary)]">
-                PROPERTY DESIGN · CONSTRUCTION · VILLA MANAGEMENT
+                WHO WE ARE · DIANI BEACH, KENYA
               </p>
 
               <p className="max-w-2xl text-base leading-8 text-[var(--text-secondary)]">
-                Based in Diani Beach on Kenya's South Coast, Wakusini brings
-                together property design, construction and villa management to
-                help clients create and care for properties along the coast.
+                Wakusini is a property design, construction and villa management
+                establishment based in Diani Beach on Kenya's South Coast.
               </p>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Image feature */}
+      {/* Company image */}
       <section className="px-4 sm:px-6 lg:px-10">
-        <div className="relative min-h-[320px] overflow-hidden bg-[var(--sandstone)] sm:min-h-[480px] lg:min-h-[620px]">
-          {/* Add an appropriate company / project image here */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-xs tracking-[0.2em] text-[var(--text-secondary)]">
-              WAKUSINI — COMPANY IMAGE
-            </span>
-          </div>
+        <div className="relative aspect-[4/3] overflow-hidden bg-[var(--sandstone)] sm:aspect-[16/9] lg:aspect-[16/7]">
+          <Image
+            src={aboutImage}
+            alt="Wakusini property development on Kenya's South Coast"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
 
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 to-transparent p-6 text-white sm:p-10">
-            <p className="text-xs tracking-[0.2em]">
-              ROOTED IN THE KENYAN SOUTH COAST
-            </p>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+
+          <p className="absolute bottom-6 left-6 text-xs tracking-[0.2em] text-white sm:bottom-10 sm:left-10">
+            ROOTED IN DIANI BEACH · KENYA
+          </p>
         </div>
       </section>
 
-      {/* Company introduction */}
+      {/* About Wakusini */}
       <section className="section-padding">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
             <div>
-              <p className="eyebrow">Who we are</p>
+              <p className="eyebrow">About the company</p>
 
               <h2 className="mt-5 max-w-md font-display text-4xl leading-tight sm:text-5xl">
-                A connected approach to coastal property.
+                From a tiny villa to a five-bedroom home.
               </h2>
             </div>
 
             <div className="space-y-6 text-sm leading-8 text-[var(--text-secondary)] sm:text-base">
               <p>
-                Property development involves more than the building itself. It
-                begins with understanding the land, shaping a suitable design
-                and managing the process through construction and beyond.
+                Wakusini provides end-to-end property development and
+                maintenance services. From a tiny villa to a five-bedroom villa,
+                no project is too small or too large.
               </p>
 
               <p>
-                Wakusini brings these services together in one coordinated
-                offering. Whether a client needs support with a specific stage
-                of a project or a more complete property solution, the approach
-                can be shaped around their requirements.
+                Our professional, friendly and experienced team brings together
+                expertise across a wide range of property services, from
+                architects and designers to villa rental specialists.
               </p>
 
               <p>
-                With Diani as its home, Wakusini focuses on properties that
-                respond to the character and lifestyle of Kenya's South Coast.
+                This combined approach allows us to offer property development
+                and management services across the different stages of a
+                property's journey.
               </p>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Approach */}
-      <section className="bg-[var(--forest)] py-24 text-white sm:py-32">
+      {/* Founders */}
+      <section className="bg-[var(--sandstone)]/50 py-24 sm:py-32">
         <Container>
-          <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
-            <div>
-              <p className="text-xs tracking-[0.2em] text-white/60">
-                OUR APPROACH
-              </p>
-
-              <h2 className="mt-6 font-display text-4xl leading-tight sm:text-5xl">
-                From the first idea to the finished property.
-              </h2>
+          <div className="grid items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+            <div className="relative aspect-[4/5] overflow-hidden bg-[var(--sandstone)]">
+              <Image
+                src={foundersImage}
+                alt="Billy and Elvira Fanuel, founders of Wakusini"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
 
-            <div className="grid gap-10 sm:grid-cols-2">
-              {[
-                {
-                  number: "01",
-                  title: "Understand",
-                  description:
-                    "Every project begins with understanding the client's requirements, priorities and intended use of the property.",
-                },
-                {
-                  number: "02",
-                  title: "Design",
-                  description:
-                    "Architectural planning brings together functionality, considered design and the character of coastal living.",
-                },
-                {
-                  number: "03",
-                  title: "Build",
-                  description:
-                    "Construction turns the agreed vision into a physical space, with attention to the details of the project.",
-                },
-                {
-                  number: "04",
-                  title: "Manage",
-                  description:
-                    "Ongoing property care and villa management help owners look after their investment beyond completion.",
-                },
-              ].map((item) => (
-                <div
-                  key={item.number}
-                  className="border-t border-white/20 pt-5"
-                >
-                  <p className="text-xs tracking-widest text-white/50">
-                    {item.number}
-                  </p>
+            <div>
+              <p className="eyebrow">The people behind Wakusini</p>
 
-                  <h3 className="mt-5 font-display text-3xl">{item.title}</h3>
+              <h2 className="mt-5 font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
+                Billy & Elvira Fanuel
+              </h2>
 
-                  <p className="mt-4 text-sm leading-7 text-white/65">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
+              <div className="mt-8 space-y-6 text-sm leading-8 text-[var(--text-secondary)] sm:text-base">
+                <p>
+                  Billy has an extensive background in the creative and real
+                  estate development fields, spanning more than 10 years.
+                </p>
+
+                <p>
+                  Elvira, his wife, is a skilled and qualified hotelier and
+                  business manager.
+                </p>
+
+                <p>
+                  They realised that what they could achieve together in real
+                  estate was much greater than what either could accomplish
+                  alone in any industry. They therefore decided to devote
+                  themselves fully to building their real estate and development
+                  brand.
+                </p>
+
+                <p>
+                  Both have established themselves as dependable professionals,
+                  diligent, enthusiastic and passionate about their work and
+                  their commitment to the Wakusini brand.
+                </p>
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Services connection */}
+      {/* Relationships */}
       <section className="section-padding">
         <Container>
-          <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-            <div className="max-w-2xl">
-              <p className="eyebrow">What we do</p>
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
+            <div>
+              <p className="eyebrow">Our philosophy</p>
 
-              <h2 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">
-                The expertise to bring a property together.
+              <h2 className="mt-5 max-w-md font-display text-4xl leading-tight sm:text-5xl">
+                Strong relationships. Shared confidence.
+              </h2>
+            </div>
+
+            <div className="space-y-6 text-sm leading-8 text-[var(--text-secondary)] sm:text-base">
+              <p>
+                Together, Billy and Elvira have cultivated quality resources and
+                professional contacts to benefit homebuyers.
+              </p>
+
+              <p>
+                They have established working relationships with a network of
+                real estate agents, architects, builders and rental and property
+                management companies.
+              </p>
+
+              <p>
+                They believe in building strong client relationships through
+                honesty and transparency.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Services CTA */}
+      <section className="bg-[var(--forest)] py-24 text-white sm:py-32">
+        <Container>
+          <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
+            <div className="max-w-3xl">
+              <p className="text-xs tracking-[0.2em] text-olive-700">
+                DISCOVER WAKUSINI
+              </p>
+
+              <h2 className="mt-6 font-display text-4xl leading-tight text-olive-700/70 sm:text-5xl lg:text-6xl">
+                Explore what we can build together.
               </h2>
 
-              <p className="mt-6 max-w-xl text-sm leading-8 text-[var(--text-secondary)] sm:text-base">
-                From identifying suitable land to designing, constructing and
-                managing a property, explore the services available through
-                Wakusini.
+              <p className="mt-6 max-w-xl text-sm leading-8 text-olive-700/60 sm:text-base">
+                Discover the services that bring together property design,
+                development and management.
               </p>
             </div>
 
             <Link href="/services" className="button-primary w-fit">
-              Explore our services
-              <ArrowUpRight size={16} />
-            </Link>
-          </div>
-        </Container>
-      </section>
-
-      {/* Closing CTA */}
-      <section className="border-t border-[var(--border)] py-20 sm:py-28">
-        <Container>
-          <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-            <div className="max-w-2xl">
-              <p className="eyebrow">Start a conversation</p>
-
-              <h2 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">
-                Have a property project in mind?
-              </h2>
-
-              <p className="mt-5 text-sm leading-7 text-[var(--text-secondary)]">
-                Talk to the Wakusini team about your plans for property in
-                Diani.
-              </p>
-            </div>
-
-            <Link href="/contact" className="button-primary w-fit">
-              Get in touch
+              View our services
               <ArrowUpRight size={16} />
             </Link>
           </div>

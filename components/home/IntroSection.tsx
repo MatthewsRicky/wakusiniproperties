@@ -2,33 +2,44 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import Container from "@/components/shared/Container";
-import SectionHeading from "@/components/shared/SectionHeading";
 
 export default function IntroSection() {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-24">
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
           <div>
-            <SectionHeading
-              eyebrow="Who we are"
-              title="More than property. A considered way of building."
-            />
+            <p className="eyebrow">About Wakusini</p>
+
+            <h2 className="mt-5 max-w-md font-display text-4xl leading-tight sm:text-5xl">
+              Property development, from the ground up.
+            </h2>
           </div>
 
-          <div className="flex flex-col justify-between">
-            <p className="text-base leading-8 text-[var(--text-secondary)] sm:text-lg sm:leading-9">
-              Wakusini brings together property development, architectural
-              design, construction and villa management to serve people looking
-              to create, own and manage property along Kenya's South Coast.
+          <div>
+            <p className="text-base leading-8 text-[var(--text-secondary)]">
+              Wakusini is a property design, construction and villa management
+              establishment based in Diani Beach on Kenya's South Coast.
+            </p>
+
+            <p className="mt-6 text-base leading-8 text-[var(--text-secondary)]">
+              Providing end-to-end property development and maintenance
+              services, Wakusini brings together professionals across
+              architecture, design, construction and villa management.
+            </p>
+
+            <p className="mt-6 text-base leading-8 text-[var(--text-secondary)]">
+              From a tiny villa to a five-bedroom home, the team approaches each
+              project with the same commitment to quality and client
+              relationships.
             </p>
 
             <Link
               href="/about"
-              className="mt-9 inline-flex w-fit items-center gap-3 border-b border-[var(--border)] pb-3 text-sm font-semibold transition-colors hover:border-[var(--foreground)]"
+              className="mt-9 inline-flex items-center gap-3 border-b border-[var(--border)] pb-3 text-sm font-semibold transition-colors hover:border-[var(--forest)]"
             >
-              Discover our story
-              <ArrowUpRight size={16} />
+              Discover Wakusini
+              <ArrowUpRight size={17} />
             </Link>
           </div>
         </div>
