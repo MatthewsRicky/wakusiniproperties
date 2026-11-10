@@ -1,3 +1,5 @@
+
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
@@ -9,21 +11,24 @@ const developments = [
     name: "Villa Maalum",
     slug: "villa-maalum",
     location: "Diani Beach, Kenya",
-    imageLabel: "Villa Maalum photography",
+    image: "/images/developments/villa-maalum/Villa_Maalum_6web-1536x1075.jpg",
+    logo: "/images/logos/VillaMaalum-1-150x150.png",
     className: "lg:mt-16",
   },
   {
     name: "Villa Kaya",
     slug: "villa-kaya",
     location: "Diani Beach, Kenya",
-    imageLabel: "Villa Kaya photography",
+    image: "/images/developments/villa-kaya/14-FrontView-1024x614.jpg",
+    logo: "/images/logos/villa-kaya-logo-150x150.png",
     className: "",
   },
   {
     name: "Tulia House",
     slug: "tulia-house",
     location: "Diani Beach, Kenya",
-    imageLabel: "Tulia House photography",
+    image: "/images/developments/tulia-house/TuliaWeb-04-1-1024x683.jpg",
+    logo: "/images/developments/tulia-house/tulia-logo-150x150.png",
     className: "lg:mt-16",
   },
 ];
@@ -55,10 +60,43 @@ export default function FeaturedDevelopments() {
               href={`/developments/${development.slug}`}
               className={`group block ${development.className}`}
             >
-              <div className="image-placeholder relative aspect-[4/5] overflow-hidden transition-transform duration-500 group-hover:scale-[0.99]">
-                <span>{development.imageLabel}</span>
+              <div className="relative aspect-[4/5] overflow-hidden bg-[var(--sandstone)]">
+                {development.image ? (
+                  <Image
+                    src={development.image}
+                    alt={`${development.name} property`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-xs tracking-widest text-[var(--text-secondary)]">
+                      IMAGE COMING SOON
+                    </span>
+                  </div>
+                )}
 
-                <span className="absolute bottom-5 right-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/60 text-white transition-colors group-hover:bg-white group-hover:text-[var(--foreground)]">
+                {/* Subtle contrast overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/30" />
+
+                {/* Villa logo panel */}
+                {development.logo && (
+                  <div className="absolute inset-0 z-10 flex items-center justify-center">
+                    <div className="flex min-h-32 min-w-40 items-center justify-center bg-white/70 px-8 py-7 shadow-lg backdrop-blur-sm transition-transform duration-500 group-hover:scale-105">
+                      <Image
+                        src={development.logo}
+                        alt={`${development.name} logo`}
+                        width={340}
+                        height={260}
+                        className="h-auto max-h-20 w-auto max-w-40 object-contain"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Explore indicator */}
+                <span className="absolute bottom-5 right-5 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/60 text-white transition-colors group-hover:bg-white group-hover:text-[var(--foreground)]">
                   <ArrowUpRight size={19} />
                 </span>
               </div>

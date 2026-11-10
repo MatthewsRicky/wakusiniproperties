@@ -6,6 +6,7 @@ import {
   House,
   MapPinned,
 } from "lucide-react";
+import Image from "next/image";
 
 import Container from "@/components/shared/Container";
 import SectionHeading from "@/components/shared/SectionHeading";
@@ -62,7 +63,13 @@ export default function ServicesOverview() {
             </Link>
 
             <div className="image-placeholder mt-16 hidden aspect-[5/4] lg:flex">
-              <span>Architectural and construction imagery</span>
+              <Image 
+              src={"/images/services/16-TopView-1-1024x717.jpg"}
+              alt="Architectural and Construction imagery"
+              width={600}
+              height={600}
+              className="object-cover w-full h-full"
+              />
             </div>
           </div>
 
