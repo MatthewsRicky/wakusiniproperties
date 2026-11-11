@@ -16,7 +16,7 @@ export default function MeetTheTeam() {
               alt="Billy and Elvira Fanuel"
               fill
               sizes="(max-width: 1024px) 100vw, 55vw"
-              className="object-cover"
+              className="object-contain"
             />
           </div>
 
