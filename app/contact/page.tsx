@@ -1,215 +1,243 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  Mail,
+  MapPin,
+  Phone,
+  MessageCircle,
+  Check,
+} from "lucide-react";
 
 import Container from "@/components/shared/Container";
+import ContactForm from "@/components/contact/ContactForm";
+import { enquiryTypes, type EnquiryType } from "@/types/contact";
+import { Suspense } from "react";
 
-export default function ContactPage() {
+type ContactPageProps = {
+  searchParams: Promise<{
+    service?: string | string[];
+  }>;
+};
+
+function isEnquiryType(value: string | undefined): value is EnquiryType {
+  return enquiryTypes.some((type) => type.value === value);
+}
+
+const contactBenefits = [
+  "Free Consultation",
+  "Budget Quotations",
+  "Site Visit",
+  "Eco Friendly Constructions",
+];
+
+async function ContactFormWithSearchParams({ searchParams }: ContactPageProps) {
+  const { service } = await searchParams;
+
+  const requestedService = Array.isArray(service) ? service[0] : service;
+
+  const initialEnquiryType = isEnquiryType(requestedService)
+    ? requestedService
+    : "other";
+
+  return <ContactForm initialEnquiryType={initialEnquiryType} />;
+}
+
+export default async function ContactPage({ searchParams }: ContactPageProps) {
+  
+
   return (
     <main>
       {/* Introduction */}
       <section className="section-padding pb-16">
         <Container>
           <div className="max-w-5xl">
-            <p className="eyebrow">Contact Wakusini</p>
+            <p className="eyebrow">Get in Touch</p>
 
             <h1 className="mt-7 font-display text-5xl leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
-              Every great project starts with a{" "}
-              <span className="italic text-[var(--olive-dark)]">
-                conversation.
-              </span>
+              Contact{" "}
+              <span className="italic text-[var(--olive-dark)]">Wakusini.</span>
             </h1>
 
             <div className="mt-10 grid gap-8 border-t border-[var(--border)] pt-8 md:grid-cols-[1fr_1.2fr]">
               <p className="text-sm leading-7 text-[var(--text-secondary)]">
-                GET IN TOUCH · DIANI BEACH, KENYA
+                WE LOVE TO HEAR FROM YOU!
               </p>
 
-              <p className="max-w-2xl text-base leading-8 text-[var(--text-secondary)]">
-                Whether you're exploring a property opportunity, planning a
-                development or looking for property management support, we'd be
-                glad to hear about your plans.
-              </p>
+              <div>
+                <h2 className="font-display text-2xl sm:text-3xl">
+                  Let's Discuss About Your Villa!
+                </h2>
+
+                <p className="mt-4 max-w-2xl text-sm leading-8 text-[var(--text-secondary)]">
+                  Whether you're planning a villa, exploring a property
+                  opportunity or looking for a reliable team to help bring your
+                  ideas to life, we'd love to hear from you. Get in touch with
+                  us to discuss your plans and how Wakusini can help.
+                </p>
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
       {/* Contact content */}
-      <section className="section-padding border-t border-[var(--border)]">
+      <section className="section-padding border-t border-[var(--border)] bg-[var(--surface-muted)]/40">
         <Container>
-          <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
+          <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
             {/* Contact information */}
-            <div>
-              <p className="eyebrow">Let's connect</p>
+            <div className="lg:py-6">
+              <p className="eyebrow">Get in Touch</p>
 
-              <h2 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">
-                Tell us what you're working on.
+              <h2 className="mt-5 max-w-md font-display text-4xl leading-tight sm:text-5xl">
+                Let's bring your plans to life.
               </h2>
 
               <p className="mt-6 max-w-md text-sm leading-8 text-[var(--text-secondary)]">
-                Share a little about your project or enquiry. The Wakusini team
-                can then understand what you're looking for and how to take the
-                conversation forward.
+                Get in touch with us to discuss your villa design, construction
+                plans, land requirements or property management needs. Share
+                your ideas and let our team help you explore the next steps.
               </p>
 
-              <div className="mt-12 border-t border-[var(--border)] pt-6">
-                <p className="text-xs tracking-[0.15em] text-[var(--text-secondary)]">
-                  LOCATION
+              {/* Service benefits */}
+              <div className="mt-10 border-t border-[var(--border)] pt-7">
+                <p className="text-xs font-medium tracking-[0.15em] text-[var(--text-secondary)]">
+                  HOW WE CAN HELP
                 </p>
 
-                <p className="mt-3 font-display text-2xl">Diani Beach</p>
-
-                <p className="mt-1 text-sm text-[var(--text-secondary)]">
-                  Kenya's South Coast
-                </p>
+                <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                  {contactBenefits.map((benefit) => (
+                    <li
+                      key={benefit}
+                      className="flex items-center gap-3 text-sm text-[var(--foreground)]"
+                    >
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--surface-muted)]">
+                        <Check
+                          size={13}
+                          strokeWidth={2}
+                          className="text-[var(--olive-dark)]"
+                        />
+                      </span>
+                      {benefit}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* Add verified phone, email and social links here */}
-              <div className="mt-8 border-t border-[var(--border)] pt-6">
-                <p className="text-xs tracking-[0.15em] text-[var(--text-secondary)]">
-                  DIRECT CONTACT
+              {/* Address */}
+              <div className="mt-10 border-t border-[var(--border)] pt-7">
+                <div className="flex items-start gap-4">
+                  <MapPin
+                    size={19}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-[var(--olive-dark)]"
+                  />
+
+                  <div>
+                    <p className="text-xs font-medium tracking-[0.15em] text-[var(--text-secondary)]">
+                      ADDRESS
+                    </p>
+
+                    <p className="mt-3 font-display text-2xl">Diani Beach</p>
+
+                    <p className="mt-1 text-sm leading-7 text-[var(--text-secondary)]">
+                      Diani Beach Road, Ukunda,
+                      <br />
+                      Kwale County, Kenya
+                    </p>
+
+                    <a
+                      href="https://www.google.com/maps?q=-4.318826,39.563490"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[var(--olive-dark)] transition-colors hover:text-[var(--foreground)]"
+                    >
+                      View on Google Maps
+                      <ArrowUpRight size={15} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Direct contact */}
+              <div className="mt-8 border-t border-[var(--border)] pt-7">
+                <p className="text-xs font-medium tracking-[0.15em] text-[var(--text-secondary)]">
+                  CONTACT DETAILS
                 </p>
 
-                <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
-                  Add Wakusini's verified email address, telephone number and
-                  WhatsApp contact here.
-                </p>
+                <div className="mt-5 space-y-5">
+                  <a
+                    href="mailto:info@wakusini.com"
+                    className="flex items-center gap-4 text-sm transition-colors hover:text-[var(--olive-dark)]"
+                  >
+                    <Mail
+                      size={18}
+                      strokeWidth={1.5}
+                      className="shrink-0 text-[var(--olive-dark)]"
+                    />
+                    info@wakusini.com
+                  </a>
+
+                  <a
+                    href="tel:+254792478591"
+                    className="flex items-center gap-4 text-sm transition-colors hover:text-[var(--olive-dark)]"
+                  >
+                    <Phone
+                      size={18}
+                      strokeWidth={1.5}
+                      className="shrink-0 text-[var(--olive-dark)]"
+                    />
+                    +254 792 478 591
+                  </a>
+
+                  <a
+                    href="https://wa.me/254792478591"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 text-sm transition-colors hover:text-[var(--olive-dark)]"
+                  >
+                    <MessageCircle
+                      size={18}
+                      strokeWidth={1.5}
+                      className="shrink-0 text-[var(--olive-dark)]"
+                    />
+                    Connect with us on WhatsApp
+                    <ArrowUpRight size={14} />
+                  </a>
+                </div>
               </div>
             </div>
 
-            {/* Enquiry form layout */}
-            <div className="bg-[var(--sandstone)]/50 p-6 sm:p-10">
-              <div className="mb-9">
-                <p className="eyebrow">Your enquiry</p>
+            {/* Enquiry form */}
+            <div className="h-fit border border-[var(--border)] bg-[var(--surface)] p-6 shadow-sm sm:p-10 lg:p-12">
+              <div className="mb-9 max-w-lg">
+                <p className="eyebrow">Your Enquiry</p>
 
                 <h2 className="mt-4 font-display text-3xl sm:text-4xl">
                   How can we help?
                 </h2>
 
                 <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
-                  Fill in the details below to start your enquiry.
+                  Tell us a little about what you have in mind. Whether it's a
+                  villa, a development or another property requirement, we're
+                  ready to hear from you.
                 </p>
               </div>
 
-              {/* Form fields — connect submission before launch */}
-              <div className="space-y-6">
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="mb-2 block text-xs font-semibold"
-                    >
-                      Your name
-                    </label>
-
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="Full name"
-                      className="w-full border-b border-[var(--border)] bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[var(--forest)]"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="mb-2 block text-xs font-semibold"
-                    >
-                      Email address
-                    </label>
-
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="you@example.com"
-                      className="w-full border-b border-[var(--border)] bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[var(--forest)]"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="mb-2 block text-xs font-semibold"
-                  >
-                    Phone number
-                  </label>
-
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    placeholder="Your contact number"
-                    className="w-full border-b border-[var(--border)] bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[var(--forest)]"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="enquiry"
-                    className="mb-2 block text-xs font-semibold"
-                  >
-                    What is your enquiry about?
-                  </label>
-
-                  <select
-                    id="enquiry"
-                    name="enquiry"
-                    defaultValue=""
-                    className="w-full border-b border-[var(--border)] bg-transparent px-0 py-3 text-sm outline-none focus:border-[var(--forest)]"
-                  >
-                    <option value="" disabled>
-                      Select an enquiry type
-                    </option>
-                    <option value="architecture-design">
-                      Architectural Design
-                    </option>
-                    <option value="land-acquisition">Land Acquisition</option>
-                    <option value="construction">Construction</option>
-                    <option value="villa-management">
-                      Property & Villa Management
-                    </option>
-                    <option value="development">Development Enquiry</option>
-                    <option value="other">Something else</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="mb-2 block text-xs font-semibold"
-                  >
-                    Tell us about your plans
-                  </label>
-
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    placeholder="A little about your project or enquiry..."
-                    className="w-full resize-y border-b border-[var(--border)] bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[var(--forest)]"
-                  />
-                </div>
-
-                <p className="text-xs leading-6 text-[var(--text-secondary)]">
-                  Form submission will be connected to Wakusini's enquiry
-                  handling before launch.
-                </p>
-              </div>
+              <Suspense fallback={<div>Loading enquiry form...</div>}>
+                <ContactFormWithSearchParams searchParams={searchParams} />
+              </Suspense>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Closing location section */}
-      <section className="bg-[var(--forest)] py-20 text-white sm:py-28">
+      {/* Closing section */}
+      <section className="bg-[var(--foreground)] py-20 text-[var(--text-light)] sm:py-28">
         <Container>
           <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <div>
-              <p className="text-xs tracking-[0.2em] text-white/60">
-                WAKUSINI · KENYA
+              <p className="text-xs tracking-[0.2em] text-[var(--text-light)]/60">
+                WAKUSINI · DIANI BEACH · KENYA
               </p>
 
               <h2 className="mt-5 font-display text-4xl sm:text-5xl">
@@ -219,7 +247,7 @@ export default function ContactPage() {
 
             <Link
               href="/developments"
-              className="inline-flex w-fit items-center gap-3 border-b border-white/50 pb-3 text-sm font-semibold transition-colors hover:border-white"
+              className="inline-flex w-fit items-center gap-3 border-b border-[var(--text-light)]/50 pb-3 text-sm font-semibold transition-colors hover:border-[var(--text-light)]"
             >
               Explore our developments
               <ArrowUpRight size={17} />

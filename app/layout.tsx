@@ -5,6 +5,7 @@ import "./globals.css";
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import FloatingWhatsApp from "@/components/shared/FloatingWhatsApp";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -48,6 +49,7 @@ export default function RootLayout({
       <body>
         <Header />
         <main>{children}</main>
+        <FloatingWhatsApp />
         <Footer />
       </body>
     </html>
