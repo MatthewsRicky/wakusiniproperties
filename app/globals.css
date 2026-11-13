@@ -212,7 +212,7 @@ img {
 .nav-link {
   position: relative;
   color: var(--text-secondary);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 500;
   transition: color 200ms ease;
 }
