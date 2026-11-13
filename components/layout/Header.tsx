@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, Menu } from "lucide-react";
 
 import Container from "@/components/shared/Container";
@@ -17,16 +18,15 @@ export default function Header() {
         <Container className="flex h-20 items-center justify-between">
           <Link
             href="/"
-            className="flex flex-col leading-none"
+            className="flex flex-col leading-none bg-(--text-primary) rounded px-3 py-4"
             aria-label="Wakusini Properties home"
           >
-            <span className="font-display text-3xl font-semibold tracking-wide">
-              WAKUSINI
-            </span>
-
-            <span className="mt-1 text-[0.52rem] font-medium tracking-[0.24em] text-[var(--text-secondary)]">
-              PROPERTIES
-            </span>
+           <Image
+           src="/images/logos/wakusini-logo-white-bg-1.png" 
+           alt="Main Company Logo"
+           width={150}
+           height={400}
+           />
           </Link>
 
           <Navigation />

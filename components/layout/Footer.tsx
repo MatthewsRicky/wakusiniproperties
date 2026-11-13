@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
 import Container from "@/components/shared/Container";
@@ -17,13 +18,18 @@ export default function Footer() {
       <Container className="py-20">
         <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-[1.4fr_0.7fr_0.9fr]">
           <div>
-            <span className="font-display text-4xl tracking-wide">
-              WAKUSINI
-            </span>
-
-            <p className="mt-2 text-[0.6rem] tracking-[0.25em] text-white/50">
-              PROPERTIES
-            </p>
+            <Link
+              href="/"
+              className="flex flex-col leading-none"
+              aria-label="Wakusini Properties home"
+            >
+              <Image
+                src="/images/logos/wakusini-logo-white-bg-1.png"
+                alt="Main Company Logo"
+                width={150}
+                height={400}
+              />
+            </Link>
 
             <p className="mt-8 max-w-sm text-sm leading-7 text-white/60">
               Property development, architecture and villa management on Kenya's
